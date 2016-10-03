@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HOME</title>
+	<meta charset="utf-8" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="DivWrapper">
+
+        <div class="top-div">
+            <nav id="MainNav" class="main-nav">
+                <img src="images/logo/logo.PNG" class="nav-logo" />
+                <ul>
+                    <li><a href="#" id="HomeLink" class="hvr-grow-rotate selected">home</a></li>
+                    <li><a href="#" id="WorkLink" class="hvr-grow-rotate">work</a></li>
+                    <li><a href="#" id="AboutLink" class="hvr-grow-rotate">about</a></li>
+                    <li><a href="#" id="ContactLink" class="hvr-grow-rotate">contact</a></li>
+                </ul>
+            </nav>
+            <section class="section-top">
+                <article id="Home" class="home-article">
+                    >>> dylan dykes <br />
+                    'software developer',
+                    'full-stack'
+                </article>
+            </section>
+        </div>
+
+        <div id="Work" class="work-div">
+            <ul class="">
+                <li>
+                    <img src="images/logo/python-logo.png" />
+                </li>
+                <li>
+                    <img src="images/logo/java-logo.png" />
+                </li>
+                <li>
+                    <img src="images/logo/windows-logo.png" />
+                </li>
+                <li>
+                    <img src="images/logo/htmlcssjs-logo.png" />
+                </li>
+            </ul>
+
+        </div>
+        <div id="About" class="about-div">
+            <h1>About me</h1>
+        </div>
+        <div id="Contact" class="contact-div">
+
+        </div>
+
+        <aside class="social-aside">
+            <div>
+                <a href="https://github.com/dzdykes" target="_blank"><img class="social-logo" src="images/logo/github-logo.png" /></a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/dylandykes" target="_blank"><img class="social-logo" src="images/logo/linkedin-logo.png" /></a>
+            </div>
+            <div>
+                <a href="https://www.facebook.com/dzdykes" target="_blank"><img class="social-logo" src="images/logo/facebook-logo.png" /></a>
+            </div>
+            <div>
+                <a href="http://steamcommunity.com/profiles/76561198155122508/" target="_blank"><img class="social-logo" src="images/logo/steam-logo.png" /></a>
+            </div>
+        </aside>
+        <footer class="page-footer">
+            <ul>
+                <li><a href="index.html">HOME</a> | </li>
+                <li><a href="#">ABOUT</a> | </li>
+                <li><a href="#">CONTACT</a> | </li>
+                <li><a href="#">CREDITS</a> | </li>
+                <li><a href="http://superlists.dylandpdx.com">TODO LIST</a> | </li>
+            </ul>
+        </footer>
+
+    </div>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script>
+        function scrollToSection(section) {
+            var mainNavPos = $('#MainNav').height();
+            var scroll = $(section).position().top;
+            section != "#Home" ? diff = scroll - mainNavPos : diff = 0;
+            $("body", "html").animate({ scrollTop: diff.toString() }, 1000, 'easeOutBounce');
+        };
+
+        $('#HomeLink').on('click', function () { scrollToSection("#Home") });
+        $('#AboutLink').on('click', function () { scrollToSection("#About") });
+        $('#WorkLink').on('click', function () { scrollToSection("#Work") });
+        $('#ContactLink').on('click', function () { scrollToSection("#Contact") });
+
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            
+            if (scroll < 200) {
+                $(".selected").removeClass("selected");
+                $("#HomeLink").addClass("selected");
+            }
+
+            if (scroll >= 200 && scroll < 400) {
+                $(".selected").removeClass("selected");
+                $("#WorkLink").addClass("selected");
+            }
+
+            if (scroll >= 500 && scroll < 800) {
+                $(".selected").removeClass("selected");
+                $("#AboutLink").addClass("selected");
+            }
+
+            if (scroll >= 750) {
+                $(".selected").removeClass("selected");
+                $("#ContactLink").addClass("selected");
+            }
+        });
+    </script>
+</body>
+</html>
