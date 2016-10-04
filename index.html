@@ -12,19 +12,24 @@
             <nav id="MainNav" class="main-nav">
                 <img src="images/logo/logo.PNG" class="nav-logo" />
                 <ul>
-                    <li><a href="#" id="HomeLink" class="hvr-grow-rotate selected">home</a></li>
-                    <li><a href="#" id="WorkLink" class="hvr-grow-rotate">work</a></li>
-                    <li><a href="#" id="AboutLink" class="hvr-grow-rotate">about</a></li>
-                    <li><a href="#" id="ContactLink" class="hvr-grow-rotate">contact</a></li>
+                    <li><span href="#" id="HomeLink" class="hvr-grow-rotate selected">home</span></li>
+                    <li><span href="#" id="AboutLink" class="hvr-grow-rotate">about</span></li>
+                    <li><span href="#" id="WorkLink" class="hvr-grow-rotate">work</span></li>
+                    <li><span href="#" id="ContactLink" class="hvr-grow-rotate">contact</span></li>
                 </ul>
             </nav>
             <section class="section-top">
                 <article id="Home" class="home-article">
-                    >>> dylan dykes <br />
-                    'software developer',
-                    'full-stack'
+                    >>> <span id="cursor">|</span><span id="test">
+                    </span><br />
+                    <span id="test2">
+
+                    </span>
                 </article>
             </section>
+        </div>
+        <div id="About" class="about-div">
+            <h1>About me</h1>
         </div>
 
         <div id="Work" class="work-div">
@@ -43,9 +48,6 @@
                 </li>
             </ul>
 
-        </div>
-        <div id="About" class="about-div">
-            <h1>About me</h1>
         </div>
         <div id="Contact" class="contact-div">
 
@@ -79,37 +81,79 @@
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script>
+        window.onload = function () {
+            x = setInterval(function () { blinker() }, 500);
+            setTimeout(function () {
+                clearInterval(x);
+                $('#cursor').text('');
+                animate_string('test', 'dylan_dykes', x);
+            }, 2000);
+        }
+
+        function animate_string(id, head)
+        {
+            var element = document.getElementById(id);  
+            var textNode = element.childNodes[0]; // assuming no other children  
+            var text = textNode.data;
+            var count = 0;
+            title = setInterval(function ()   
+            {
+                if (count < head.length) {
+                    text += head[count];
+                    textNode.data = text;
+                    count++;
+                } else {
+                    setTimeout(function () { document.getElementById("test2").textContent = "('web developer', 'full stack')" }, 500);
+                    clearInterval(title);
+                }
+            }, 150);  
+        } 
+
+        function blinker() {
+            $('#cursor').fadeOut(500);
+            $('#cursor').fadeIn(500);
+        }
+
+
+
         function scrollToSection(section) {
             var mainNavPos = $('#MainNav').height();
             var scroll = $(section).position().top;
-            section != "#Home" ? diff = scroll - mainNavPos : diff = 0;
+            section != "#Home" ? diff = scroll - (mainNavPos/2.5) : diff = 0;
             $("body", "html").animate({ scrollTop: diff.toString() }, 1000, 'easeOutBounce');
         };
 
-        $('#HomeLink').on('click', function () { scrollToSection("#Home") });
-        $('#AboutLink').on('click', function () { scrollToSection("#About") });
+        $('#HomeLink').on('click', function () {
+            scrollToSection("#Home");
+        });
+        $('#AboutLink').on('click', function () {
+            scrollToSection("#About");
+        });
         $('#WorkLink').on('click', function () { scrollToSection("#Work") });
         $('#ContactLink').on('click', function () { scrollToSection("#Contact") });
 
+        $('#AboutLink').on('click', function () {
+        });
+
         $(window).scroll(function () {
             var scroll = $(window).scrollTop();
-            
-            if (scroll < 200) {
+            console.log(scroll);
+            if (scroll < 500) {
                 $(".selected").removeClass("selected");
                 $("#HomeLink").addClass("selected");
             }
 
-            if (scroll >= 200 && scroll < 400) {
-                $(".selected").removeClass("selected");
-                $("#WorkLink").addClass("selected");
-            }
-
-            if (scroll >= 500 && scroll < 800) {
+            if (scroll >= 500 && scroll < 1000) {
                 $(".selected").removeClass("selected");
                 $("#AboutLink").addClass("selected");
             }
 
-            if (scroll >= 750) {
+            if (scroll >= 1000 && scroll < 1500) {
+                $(".selected").removeClass("selected");
+                $("#WorkLink").addClass("selected");
+            }
+
+            if (scroll >= 1500) {
                 $(".selected").removeClass("selected");
                 $("#ContactLink").addClass("selected");
             }

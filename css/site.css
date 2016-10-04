@@ -14,13 +14,10 @@
 
 .top-div {
     width:100%;
-    background:url('../images/bg/math.jpg');
+    background:url('../images/bg.jpg');
     background-position:center;
     background-repeat:no-repeat;
     background-size:cover;
-    padding-top:10%;
-    min-height:300px;
-    
 }
 
 .main-nav {
@@ -55,14 +52,19 @@ li {
     display:table-cell;
     width:auto;
     text-align:center;
+    padding:2%;
+    padding-bottom:5%;
 }
 
-.main-nav a {
+.main-nav span {
     padding:3%;
 }
 
+
+
 .section-top {
-    min-height:300px;
+    min-height:500px;
+    margin-top:3%;
 }
 
 .section-middle, .section-bottom {
@@ -72,6 +74,7 @@ li {
 
 .nav-logo {
     position:relative;
+    padding-left:2%;
     float:left;
 }
 
@@ -84,8 +87,8 @@ transform: translateZ(0);
 box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 -webkit-backface-visibility: hidden;
 backface-visibility: hidden;
--webkit-transition-duration: 0.3s;
-transition-duration: 0.3s;
+-webkit-transition-duration: 1s;
+transition-duration: 1s;
 -webkit-transition-property: transform;
 transition-property: transform;
 text-decoration:none;
@@ -98,6 +101,7 @@ border:1px solid black;
 box-shadow:4px 4px 4px rgba(15,15,15,.3);
 background-color:#666666;
 color:white;
+cursor:pointer;
 }
  
 
@@ -105,12 +109,13 @@ color:white;
 font-family:Calibri, sans-serif;
 width:60%;
 margin:auto;
-color:rgba(4, 68, 50, 0.70);
+color:wheat;
 font-size:3em;
 text-shadow:1px 3px rgba(128, 128, 128, .7);
 float:left;
 padding-left:10%;
-padding-top:2%;
+padding-top:5%;
+margin-top: 5%;
 }
 
 .social-logo {
@@ -141,7 +146,7 @@ padding-top:2%;
     display:inline-block;
     width:100%;
     border-top:solid black 1px;
-    border-bottom:500px solid white;
+    border-bottom:1000px solid white;
     
 }
 
@@ -164,7 +169,7 @@ padding-top:2%;
 
 .about-div {
     background:rgba(188, 159, 159, 0.67);
-    min-height:200px;
+    min-height:500px;
     margin-top:5%;
     
 }
@@ -175,7 +180,7 @@ padding-top:2%;
     background-position:center;
     background-repeat:no-repeat;
     background-size:cover;
-    min-height:300px;
+    min-height:500px;
     margin-top:5%;
 }
 
@@ -191,10 +196,6 @@ padding-top:2%;
         padding:5%;
     }
 
-.work-div, .contact-div {
-    min-height:300px;
-    margin-top:5%;
-}
 
 .fixed {
     position:fixed;
@@ -296,4 +297,10 @@ input[type="checkbox"].input-validation-error {
     width:100%;
     margin:auto;
     color:#330909;
+}
+
+.contact-div {
+    min-height:500px;
+    background-color:blue;
+    margin-top:5%;
 }
